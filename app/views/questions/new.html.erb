@@ -1,0 +1,11 @@
+
+
+<%= form_for @question do |f| %>
+  <%= f.label :title %>: 
+  <%= f.text_field :title %><br />
+
+  <%= f.label :text %>:
+  <%= f.text_area :text, :size => '50x10' %><br />
+
+  <%= f.submit %>
+<% end %>
