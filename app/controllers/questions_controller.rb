@@ -6,8 +6,8 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    if @current_user
-      @questions = @current_user.questions
+
+      @questions = Question.all
 
   end
 
