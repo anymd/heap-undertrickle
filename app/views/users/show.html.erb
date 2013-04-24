@@ -1,0 +1,11 @@
+<h1><%= @user.name.possessive %> Questions</h1>
+
+<ul>
+<% @questions.each do |question| %>
+
+  <li><%= link_to question.title, question_path(question) %></li>
+
+<% end %>
+</ul>
+
+
