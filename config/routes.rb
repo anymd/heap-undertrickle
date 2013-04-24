@@ -6,6 +6,10 @@ get "sign_up" => "users#new", :as => "sign_up"
 root :to => "users#new"
 resources :users
 resources :sessions
+resources :questions
+
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
