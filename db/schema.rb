@@ -11,7 +11,43 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130424171414) do
+ActiveRecord::Schema.define(:version => 20130424183927) do
+
+  create_table "answers", :force => true do |t|
+    t.string   "text"
+    t.integer  "question_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "questions", :force => true do |t|
+    t.string   "title"
+    t.string   "text"
+    t.integer  "best_answer_id"
+    t.integer  "user_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "responses", :force => true do |t|
+    t.string   "text"
+    t.integer  "respondable_id"
+    t.string   "respondable_type"
+    t.integer  "user_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -19,6 +55,15 @@ ActiveRecord::Schema.define(:version => 20130424171414) do
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "votes", :force => true do |t|
+    t.integer  "voteable_id"
+    t.string   "voteable_type"
+    t.integer  "user_id"
+    t.boolean  "vote"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
 end
