@@ -26,6 +26,7 @@ gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'better_errors'
 gem 'possessive'
+gem 'binding_of_caller'
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
