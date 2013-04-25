@@ -1,8 +1,10 @@
 <nav>
+  <h2><%= image_tag("heap.png",:height => "50") %> heap undertrickle </h2>
   <ul>
   <li><%= link_to "Questions", questions_path %></li>
 
   <% if current_user %>
+    <li><%= link_to "Ask question", new_question_path %></li>
     <li><%= link_to current_user.name, user_path(current_user) %></li>
     <li><%= link_to "Log Out", log_out_path %></li>
   <% else %>

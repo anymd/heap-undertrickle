@@ -1,8 +1,13 @@
 class QuestionsController < ApplicationController
 
   def new
-    @question = Question.new(params[:user])
-    render :new
+    if current_user
+      @question = Question.new(params[:user])
+      render :new
+    else
+      flash[:error] = "Must be signed in to create a question."
+      redirect_to :root
+    end
   end
 
   def index
@@ -12,7 +17,8 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(params[:question])
+    @user = current_user
+    @question = @user.questions.new(params[:question])
     if @question.save
       redirect_to "/questions"
     else
@@ -20,3 +26,4 @@ class QuestionsController < ApplicationController
     end
   end
 end
+
