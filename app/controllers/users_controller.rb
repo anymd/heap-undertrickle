@@ -4,9 +4,14 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find_by_id(params[:id])
 
-    @user = User.find(params[:id])
-    @questions = @user.questions
+    if @user
+      @questions = @user.questions
+    else
+      flash[:error] = "User not found"
+      redirect_to :root
+    end
   end
 
   def create
