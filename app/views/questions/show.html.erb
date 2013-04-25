@@ -10,13 +10,13 @@
   <%= @question.text %>
 </p>
 
-<h2>Comments</h2>
-<%= render @question.responses %>
+<h2>Responses(question):</h2>
+<%= render "responses/response_questions" %>
 
-<h2>Add a comment:</h2>
-<%= render "responses/form" %>
+<h2>Add a Response(question):</h2>
+<%= render "responses/form_question" %>
 
-<h2>Answers</h2>
+<h2>Answers:</h2>
 <%= render @question.answers %>
 
 <h2>Add an Answer:</h2>

@@ -8,6 +8,12 @@
   <%= answer.text %>
 </p>
 
+<h2>Responses(answer):</h2>
+<%= render "responses/response_answers", answer:answer %>
+
+<h2>Add a Response(answer):</h2>
+<%= render "responses/form_answer", answer:answer %>
+
 <p>
   <%= link_to 'Delete Answer', [answer.question, answer],
                :confirm => 'Are you sure?',
