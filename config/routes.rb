@@ -12,5 +12,8 @@ HeapUndertrickle::Application.routes.draw do
     resources :answers
   end
 
+  resources :answers do
+      resources :responses
+    end
 
 end

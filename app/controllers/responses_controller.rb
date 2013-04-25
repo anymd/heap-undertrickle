@@ -1,16 +1,27 @@
 class ResponsesController < ApplicationController
   def create
     @user = current_user
-    @question = Question.find(params[:question_id])
-    @response = @question.responses.build(params[:response])
+    if params[:question_id]
+      @respondable = @question = Question.find(params[:question_id])
+    else
+      @respondable = Answer.find(params[:answer_id])
+      @question = @respondable.question
+    end
+
+    @response = @respondable.responses.build(params[:response])
     @response.user = @user
     @response.save
     redirect_to question_path(@question)
   end
 
   def destroy
-    @question = Question.find(params[:question_id])
-    @response = @question.responses.find(params[:id])
+    if params[:question_id]
+      @respondable = @question = Question.find(params[:question_id])
+    else
+      @respondable = Answer.find(params[:answer_id])
+      @question = @respondable.question
+    end
+    @response = @respondable.responses.find(params[:id])
     @response.destroy
     redirect_to question_path(@question)
   end
