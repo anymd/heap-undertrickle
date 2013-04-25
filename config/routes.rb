@@ -9,6 +9,7 @@ HeapUndertrickle::Application.routes.draw do
 
   resources :questions do
     resources :responses
+    resources :answers
   end
 
 
