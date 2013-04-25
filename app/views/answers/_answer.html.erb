@@ -1,0 +1,15 @@
+<p>
+  <b>By:</b>
+  <%= answer.user.name %>
+</p>
+
+<p>
+  <b>Answer:</b>
+  <%= answer.text %>
+</p>
+
+<p>
+  <%= link_to 'Delete Answer', [answer.question, answer],
+               :confirm => 'Are you sure?',
+               :method => :delete %>
+</p>
