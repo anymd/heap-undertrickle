@@ -3,7 +3,7 @@
   <ul>
   <li><%= link_to "Questions", questions_path %></li>
 
-  <% if current_user %>
+  <% if is_logged_in? %>
     <li><%= link_to "Ask question", new_question_path %></li>
     <li><%= link_to current_user.name, user_path(current_user) %></li>
     <li><%= link_to "Log Out", log_out_path %></li>

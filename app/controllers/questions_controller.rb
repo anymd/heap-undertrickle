@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
-
+  
   def new
-    if current_user
+    if is_logged_in?
       @question = Question.new(params[:user])
       render :new
     else
