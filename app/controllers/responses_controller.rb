@@ -2,8 +2,9 @@ class ResponsesController < ApplicationController
   def create
     @user = current_user
     @question = Question.find(params[:question_id])
-    @response = @question.responses.create(params[:response])
-    @response.update_attribute(:user_id, @user.id)
+    @response = @question.responses.build(params[:response])
+    @response.user = @user
+    @response.save
     redirect_to question_path(@question)
   end
 
