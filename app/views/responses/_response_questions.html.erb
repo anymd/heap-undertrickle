@@ -1,0 +1,17 @@
+<% @question.responses.each do |response| %>
+<p>
+  <b>Responder:</b>
+  <%= response.user.name %>
+</p>
+
+<p>
+  <b>Response:</b>
+  <%= response.text %>
+</p>
+
+<p>
+  <%= link_to 'Delete Response', [response.respondable, response],
+               :confirm => 'Are you sure?',
+               :method => :delete %>
+</p>
+<% end %>
