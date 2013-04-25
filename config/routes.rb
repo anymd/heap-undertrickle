@@ -6,6 +6,10 @@ HeapUndertrickle::Application.routes.draw do
   root :to => "home#index"
   resources :users
   resources :sessions
-  resources :questions
+
+  resources :questions do
+    resources :responses
+  end
+
 
 end
