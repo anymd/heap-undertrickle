@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20130424183927) do
   end
 
   create_table "responses", :force => true do |t|
-    t.string   "text"
+    t.text     "text"
     t.integer  "respondable_id"
     t.string   "respondable_type"
     t.integer  "user_id"

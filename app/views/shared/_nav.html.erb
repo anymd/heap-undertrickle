@@ -1,15 +1,20 @@
-<nav>
-  <h2><%= image_tag("heap.png",:height => "50") %> heap undertrickle </h2>
-  <ul>
-  <li><%= link_to "Questions", questions_path %></li>
+<div class="header">
 
-  <% if is_logged_in? %>
-    <li><%= link_to "Ask question", new_question_path %></li>
-    <li><%= link_to current_user.name, user_path(current_user) %></li>
-    <li><%= link_to "Log Out", log_out_path %></li>
-  <% else %>
-    <li><%= link_to "Login", log_in_path %></li>
-    <li><%= link_to "Sign-up", sign_up_path %></li>
-  <% end %>
-</ul>
-</nav>
+    <ul class="logo">
+      <li><%= image_tag("heap.png",:height => "50") %></li>
+      <li>heap<b>undertrickle</b></li>
+    </ul>  
+  
+    <ul class="nav">
+      <li><%= link_to "Questions", questions_path %></li>
+      <% if is_logged_in? %>
+        <li><%= link_to "Ask question", new_question_path %></li>
+        <li><%= link_to current_user.name.titleize, user_path(current_user) %></li>
+        <li><%= link_to "Log Out", log_out_path %></li>
+      <% else %>
+        <li><%= link_to "Login", log_in_path %></li>
+        <li><%= link_to "Sign-up", sign_up_path %></li>
+      <% end %>
+    </ul>
+  
+</div>
