@@ -10,10 +10,14 @@ HeapUndertrickle::Application.routes.draw do
   resources :questions do
     resources :responses
     resources :answers
+    post "upvote" => "questions#upvote", :as => "upvote"
+    post "downvote" => "questions#downvote", :as => "downvote"
   end
 
   resources :answers do
-      resources :responses
-    end
+    resources :responses
+    post "upvote" => "answers#upvote", :as => "upvote"
+    post "downvote" => "answers#downvote", :as => "downvote"
+  end
 
 end
