@@ -39,8 +39,21 @@ gem 'possessive'
 
 # To use debugger
 # gem 'debugger'
-group :development do
+
+
+
+
+
+group :development, :test do
+  gem "nyan-cat-formatter"
+  gem 'shoulda'
   gem 'rspec'
+  gem "rspec-rails", "~> 2.0"
+  gem 'capybara'
   gem 'better_errors'
   gem 'binding_of_caller'
 end
+
+
+
+  

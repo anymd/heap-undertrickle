@@ -1,5 +1,7 @@
 class Answer < ActiveRecord::Base
-  attr_accessible :text
+  attr_accessible :text, :vote_count
+
+  validates :text, :user_id, :question_id, :presence => true
 
   belongs_to :question
   has_many :responses, :as => :respondable, :dependent => :destroy
