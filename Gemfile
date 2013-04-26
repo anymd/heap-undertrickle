@@ -7,7 +7,6 @@ gem 'rails', '3.2.12'
 
 gem 'pg'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -26,9 +25,9 @@ gem 'faker'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
-gem 'better_errors'
+
 gem 'possessive'
-gem 'binding_of_caller'
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
@@ -40,3 +39,8 @@ gem 'binding_of_caller'
 
 # To use debugger
 # gem 'debugger'
+group :development do
+  gem 'rspec'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
