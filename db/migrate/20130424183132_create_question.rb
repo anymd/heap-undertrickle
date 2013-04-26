@@ -5,6 +5,7 @@ class CreateQuestion < ActiveRecord::Migration
       t.text :text
       t.integer :best_answer_id
       t.references :user
+      t.integer :vote_count
       t.timestamps
     end
   end
