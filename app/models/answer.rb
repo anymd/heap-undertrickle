@@ -5,4 +5,5 @@ class Answer < ActiveRecord::Base
   has_many :responses, :as => :respondable, :dependent => :destroy
   has_many :votes, :as => :voteable, :dependent => :destroy
   belongs_to :user
+
 end
