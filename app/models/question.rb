@@ -5,4 +5,5 @@ class Question < ActiveRecord::Base
   has_many :responses, :as => :respondable, :dependent => :destroy
   has_many :answers, :dependent => :destroy
   has_many :votes, :as => :voteable, :dependent => :destroy
+
 end
