@@ -3,3 +3,7 @@
 <div class="error"><%= flash[:error] %></div>
 <% end %>
 
+
+<% if flash[:notice] %>
+    <div id="notice"><%= flash[:notice] %></div>
+<% end %>
