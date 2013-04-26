@@ -57,9 +57,11 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
 
+    @vote = @question.votes.find_by_user_id(current_user.id)
+
     respond_to do |format|
       format.html  # show.html.erb
-      format.json  { render :json => @post }
+      format.json  { render :json => @question }
     end
   end
 
@@ -72,5 +74,54 @@ class QuestionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def upvote
+    @question = Question.find(params[:question_id])
+
+    question_vote = Vote.find_by_user_id_and_voteable_id(current_user.id, @question.id)
+
+    if question_vote
+
+      if question_vote.vote == true
+        question_vote.update_attributes(:vote => nil)
+      else
+        question_vote.update_attributes(:vote => true)
+      end
+
+    else
+      vote = @question.votes.build(:vote => true)
+      vote.user = current_user
+      vote.save
+    end
+
+    redirect_to @question
+
+  end
+
+  def downvote
+    @question = Question.find(params[:question_id])
+
+    question_vote = Vote.find_by_user_id_and_voteable_id(current_user.id, @question.id)
+
+    if question_vote
+
+      if question_vote.vote == false
+        question_vote.update_attributes(:vote => nil)
+      else
+        question_vote.update_attributes(:vote => false)
+      end
+
+    else
+      vote = @question.votes.build(:vote => false)
+      vote.user = current_user
+      vote.save
+    end
+
+    redirect_to @question
+
+  end
+
 end
+
+
 

@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<%= @question.votes.where(:vote => true).size %> upvotes<br>
+<%= link_to "UP", question_upvote_path(@question), :method => :upvote  %> <br>
+<%= link_to "DOWN", question_downvote_path(@question), :method => :downvote  %>
+
 <p>
   <b>Title:</b>
   <%= @question.title %>
@@ -12,16 +16,16 @@
 
 <h2>Responses(question):</h2>
 <%= render "responses/response_questions" %>
-
+<hr>
 <h2>Add a Response(question):</h2>
 <%= render "responses/form_question" %>
-
+<hr>
 <h2>Answers:</h2>
 <%= render @question.answers %>
-
+<hr>
 <h2>Add an Answer:</h2>
 <%= render "answers/form" %>
-
+<hr>
 
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>
